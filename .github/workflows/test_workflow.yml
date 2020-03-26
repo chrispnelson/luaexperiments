@@ -22,16 +22,16 @@ jobs:
     - name: Run a one-line script
       run: echo "single run testing basic script running" 
     - name: Run a one-line script
-      run: sh bash/test.h "A" "B" "C"
+      run: sh bash/test.sh "A" "B" "C"
     - name: Run a one-line script
-      run: sh bash/test2.h "A" "B" "C"
+      run: sh bash/test2.sh "A" "B" "C"
     - name: Run a one-line script
-      run: sh bash/test3.h "A" "B" "C"
+      run: sh bash/test3.sh "A" "B" "C"
 
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
       run: |
         echo "set testing basic script running"
-        sh bash/test.h "A" "B" "C"
-        sh bash/test2.h "A" "B" "C"
-        sh bash/test3.h "A" "B" "C"
+        sh bash/test.sh "A" "B" "C"
+        sh bash/test2.sh "A" "B" "C"
+        sh bash/test3.sh "A" "B" "C"
