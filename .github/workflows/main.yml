@@ -12,6 +12,11 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  test:
+    strategy:
+      matrix:
+        luaVersion: ["5.1", "5.2", "5.3"]
+
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
@@ -23,10 +28,10 @@ jobs:
     - uses: actions/checkout@v2
     # Install lua and prepare github actions for running LUA scripts
     #- name: Install Lua/LuaJIT
-    - uses: leafo/gh-actions-lua@v3
-    #- uses: gh-actions-lua@v3
+   - uses: leafo/gh-actions-lua@v3
+     with:
+       luaVersion: ${{ matrix.luaVersion }}
+
     # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
-      run: |
-        echo "Attempt to run a lua script"
-        LUA helloworld.lua
+    - name: Attempt to run a lua script
+      run: lua helloworld.lua
